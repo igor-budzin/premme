@@ -1,0 +1,32 @@
+$col-count: 12;
+$col-offset: 10px;
+
+@mixin clearfix {
+	&::after {
+		display: table;
+		clear: both;
+		content: '';
+	}
+}
+
+.container {
+	width: 840px;
+	margin-right: auto;
+	margin-left: auto;
+}
+
+.row {
+	@include clearfix;
+	width: 100%;
+}
+
+@for $i from 1 through $col-count {
+	.grid-item-#{$i} {
+		position: relative;
+		margin-right: $col-offset;
+		margin-left: $col-offset;
+		float: left;
+		float: left;
+		width: calc((100% - #{$col-offset} * 2 * #{$i}) / #{$i});
+	}
+}

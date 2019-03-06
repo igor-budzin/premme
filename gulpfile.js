@@ -38,7 +38,6 @@ function style() {
 function image() {
 	return gulp
 		.src(paths.images.src)
-		.pipe(cache(imagemin({ interlaced: true })))
 		.pipe(gulp.dest(paths.images.dest))
 		.pipe(browserSync.stream());
 }
@@ -63,6 +62,7 @@ function watch() {
 	});
 	gulp.watch(paths.styles.src, style);
 	gulp.watch(paths.html.src, html);
+	gulp.watch(paths.images.src, image);
 }
 
 exports.watch = watch

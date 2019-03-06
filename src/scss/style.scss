@@ -1,3 +1,138 @@
+@import 'reset.scss';
+@import 'grid.scss';
+
+$main-font: 'Times New Roman', serif;
+$second-font: 'Tahoma', sans-serif;
+
+$main-font-color: #000;
+$second-font-color: #8d8d8d;
+
 body {
-  background-color: #fff;
+	background-color: #fff;
+	font-family: $main-font;
+	font-size: 14px;
+}
+
+p {
+	color: $second-font-color;
+	line-height: 20px;
+	margin: 0;
+	margin-bottom: 10px;
+}
+
+a.btn {
+	color: #fff;
+	font-size: 13px;
+	text-decoration: none;
+	background: linear-gradient(lighten(#c03931, 10%), #c03931) #c03931;
+	height: 30px;
+	line-height: 30px;
+	display: inline-block; 
+	padding: 0 25px;
+	border-radius: 2px;
+	font-family: $second-font;
+
+	&:hover {
+		background: linear-gradient(#c03931, lighten(#c03931, 10%)) lighten(#c03931, 10%);
+	}
+}
+
+.header {
+	height: 80px;
+	line-height: 80px;
+
+	.header__logo {
+		margin-top: 16px;
+		display: inline-block;
+		float: left;
+	}
+	
+	.header__nav {
+		float: right;
+
+		a {
+			font-family: $second-font;
+			font-size: 16px;
+			font-weight: bold;
+			color: $main-font-color;
+			text-decoration: none;
+			cursor: pointer;
+			margin-left: 25px;
+
+			&:hover {
+				text-decoration: underline;
+			}
+		}
+	}
+}
+
+.main-wrapper {
+	background-color: #f0f0f0;
+	padding: 20px;
+	margin-bottom: 22px;
+	img {
+		float: left;
+		box-shadow: 1px 1px 6px 0px rgba(0, 0, 0, 0.15);
+	}
+
+	h2 {
+		font-size: 21px;
+		margin: 0;
+		line-height: 28px;
+		font-weight: bold;
+		font-family: $second-font;
+		margin-bottom: 8px;
+		margin-top: -3px;
+	}
+}
+
+.section {
+	margin-bottom: 25px;
+
+	h3 {
+		font-size: 18px;
+		font-weight: bold;
+		font-family: $second-font;
+		margin-bottom: 7px;
+	}
+}
+
+.promises {
+	[class^="promises__block"] {
+		@include clearfix;
+		background-repeat: no-repeat;
+		background-position: left center;
+		margin-bottom: 20px;
+
+		> div {
+			min-height: 44px;
+			display: table;
+		}
+
+		span {
+			display: table-cell;
+			vertical-align: middle;
+			font-style: italic;
+			padding-left: 60px;
+			line-height: 18px;
+		}
+	}
+
+	.promises__block--people {
+		background-image: url('../images/people.png');
+	}
+	.promises__block--bucket {
+		background-image: url('../images/bucket.png');
+	}
+	.promises__block--calc {
+		background-position: 30px center;
+		background-image: url('../images/calc.png');
+
+		span {
+			padding-left: 90px;
+		}
+	}
+	.promises__block--bag {
+		background-image: url('../images/bag.png');
+	}
 }
